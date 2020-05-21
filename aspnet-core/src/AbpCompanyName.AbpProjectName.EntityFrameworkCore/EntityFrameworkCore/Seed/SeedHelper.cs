@@ -14,10 +14,10 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed
     {
         public static void SeedHostDb(IIocResolver iocResolver)
         {
-            WithDbContext<AbpProjectNameDbContext>(iocResolver, SeedHostDb);
+            WithDbContext<ITGroupDbContext>(iocResolver, SeedHostDb);
         }
 
-        public static void SeedHostDb(AbpProjectNameDbContext context)
+        public static void SeedHostDb(ITGroupDbContext context)
         {
             context.SuppressAutoSetTenantId = true;
 

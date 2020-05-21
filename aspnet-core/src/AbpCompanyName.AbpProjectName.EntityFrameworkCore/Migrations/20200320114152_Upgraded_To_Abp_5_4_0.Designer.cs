@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AbpCompanyName.AbpProjectName.Migrations
 {
-    [DbContext(typeof(AbpProjectNameDbContext))]
+    [DbContext(typeof(ITGroupDbContext))]
     [Migration("20200320114152_Upgraded_To_Abp_5_4_0")]
     partial class Upgraded_To_Abp_5_4_0
     {

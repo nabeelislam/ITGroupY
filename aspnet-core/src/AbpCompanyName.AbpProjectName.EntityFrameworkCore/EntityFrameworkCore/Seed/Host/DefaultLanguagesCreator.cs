@@ -10,7 +10,7 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed.Host
     {
         public static List<ApplicationLanguage> InitialLanguages => GetInitialLanguages();
 
-        private readonly AbpProjectNameDbContext _context;
+        private readonly ITGroupDbContext _context;
 
         private static List<ApplicationLanguage> GetInitialLanguages()
         {
@@ -32,7 +32,7 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed.Host
             };
         }
 
-        public DefaultLanguagesCreator(AbpProjectNameDbContext context)
+        public DefaultLanguagesCreator(ITGroupDbContext context)
         {
             _context = context;
         }

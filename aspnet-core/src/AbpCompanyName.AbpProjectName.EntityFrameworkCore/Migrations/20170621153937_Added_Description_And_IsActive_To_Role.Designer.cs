@@ -7,7 +7,7 @@ using AbpCompanyName.AbpProjectName.EntityFrameworkCore;
 
 namespace AbpCompanyName.AbpProjectName.Migrations
 {
-    [DbContext(typeof(AbpProjectNameDbContext))]
+    [DbContext(typeof(ITGroupDbContext))]
     [Migration("20170621153937_Added_Description_And_IsActive_To_Role")]
     partial class Added_Description_And_IsActive_To_Role
     {

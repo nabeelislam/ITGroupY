@@ -20,7 +20,7 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore
         {
             if (!SkipDbContextRegistration)
             {
-                Configuration.Modules.AbpEfCore().AddDbContext<AbpProjectNameDbContext>(options =>
+                Configuration.Modules.AbpEfCore().AddDbContext<ITGroupDbContext>(options =>
                 {
                     if (options.ExistingConnection != null)
                     {

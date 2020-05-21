@@ -14,9 +14,9 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed.Host
 {
     public class HostRoleAndUserCreator
     {
-        private readonly AbpProjectNameDbContext _context;
+        private readonly ITGroupDbContext _context;
 
-        public HostRoleAndUserCreator(AbpProjectNameDbContext context)
+        public HostRoleAndUserCreator(ITGroupDbContext context)
         {
             _context = context;
         }
@@ -76,7 +76,7 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed.Host
                     UserName = AbpUserBase.AdminUserName,
                     Name = "admin",
                     Surname = "admin",
-                    EmailAddress = "admin@aspnetboilerplate.com",
+                    EmailAddress = "admin@yahoo.com",
                     IsEmailConfirmed = true,
                     IsActive = true
                 };

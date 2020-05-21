@@ -21,12 +21,12 @@ namespace AbpCompanyName.AbpProjectName.Tests.DependencyInjection
 
             var serviceProvider = WindsorRegistrationHelper.CreateServiceProvider(iocManager.IocContainer, services);
 
-            var builder = new DbContextOptionsBuilder<AbpProjectNameDbContext>();
+            var builder = new DbContextOptionsBuilder<ITGroupDbContext>();
             builder.UseInMemoryDatabase(Guid.NewGuid().ToString()).UseInternalServiceProvider(serviceProvider);
 
             iocManager.IocContainer.Register(
                 Component
-                    .For<DbContextOptions<AbpProjectNameDbContext>>()
+                    .For<DbContextOptions<ITGroupDbContext>>()
                     .Instance(builder.Options)
                     .LifestyleSingleton()
             );

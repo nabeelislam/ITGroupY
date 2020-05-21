@@ -10,10 +10,10 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Repositories
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key type of the entity</typeparam>
-    public abstract class AbpProjectNameRepositoryBase<TEntity, TPrimaryKey> : EfCoreRepositoryBase<AbpProjectNameDbContext, TEntity, TPrimaryKey>
+    public abstract class AbpProjectNameRepositoryBase<TEntity, TPrimaryKey> : EfCoreRepositoryBase<ITGroupDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        protected AbpProjectNameRepositoryBase(IDbContextProvider<AbpProjectNameDbContext> dbContextProvider)
+        protected AbpProjectNameRepositoryBase(IDbContextProvider<ITGroupDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
         }
@@ -29,7 +29,7 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Repositories
     public abstract class AbpProjectNameRepositoryBase<TEntity> : AbpProjectNameRepositoryBase<TEntity, int>, IRepository<TEntity>
         where TEntity : class, IEntity<int>
     {
-        protected AbpProjectNameRepositoryBase(IDbContextProvider<AbpProjectNameDbContext> dbContextProvider)
+        protected AbpProjectNameRepositoryBase(IDbContextProvider<ITGroupDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
         }

@@ -21,13 +21,14 @@ namespace AbpCompanyName.AbpProjectName.Tests
     {
         protected AbpProjectNameTestBase()
         {
-            void NormalizeDbContext(AbpProjectNameDbContext context)
+            void NormalizeDbContext(ITGroupDbContext context)
             {
                 context.EntityChangeEventHelper = NullEntityChangeEventHelper.Instance;
                 context.EventBus = NullEventBus.Instance;
                 context.SuppressAutoSetTenantId = true;
             }
 
+            // Seed initial data for host
             // Seed initial data for host
             AbpSession.TenantId = null;
             UsingDbContext(context =>
@@ -36,7 +37,6 @@ namespace AbpCompanyName.AbpProjectName.Tests
                 new InitialHostDbBuilder(context).Create();
                 new DefaultTenantBuilder(context).Create();
             });
-
             // Seed initial data for default tenant
             AbpSession.TenantId = 1;
             UsingDbContext(context =>
@@ -57,31 +57,31 @@ namespace AbpCompanyName.AbpProjectName.Tests
             return new DisposeAction(() => AbpSession.TenantId = previousTenantId);
         }
 
-        protected void UsingDbContext(Action<AbpProjectNameDbContext> action)
+        protected void UsingDbContext(Action<ITGroupDbContext> action)
         {
-            UsingDbContext(AbpSession.TenantId, action);
+            UsingDbContext(AbpSession.TenantId,action);
         }
 
-        protected Task UsingDbContextAsync(Func<AbpProjectNameDbContext, Task> action)
+        protected Task UsingDbContextAsync(Func<ITGroupDbContext, Task> action)
         {
             return UsingDbContextAsync(AbpSession.TenantId, action);
         }
 
-        protected T UsingDbContext<T>(Func<AbpProjectNameDbContext, T> func)
+        protected T UsingDbContext<T>(Func<ITGroupDbContext, T> func)
         {
             return UsingDbContext(AbpSession.TenantId, func);
         }
 
-        protected Task<T> UsingDbContextAsync<T>(Func<AbpProjectNameDbContext, Task<T>> func)
+        protected Task<T> UsingDbContextAsync<T>(Func<ITGroupDbContext, Task<T>> func)
         {
             return UsingDbContextAsync(AbpSession.TenantId, func);
         }
 
-        protected void UsingDbContext(int? tenantId, Action<AbpProjectNameDbContext> action)
+        protected void UsingDbContext(int? tenantId, Action<ITGroupDbContext> action)
         {
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<AbpProjectNameDbContext>())
+                using (var context = LocalIocManager.Resolve<ITGroupDbContext>())
                 {
                     action(context);
                     context.SaveChanges();
@@ -89,11 +89,11 @@ namespace AbpCompanyName.AbpProjectName.Tests
             }
         }
 
-        protected async Task UsingDbContextAsync(int? tenantId, Func<AbpProjectNameDbContext, Task> action)
+        protected async Task UsingDbContextAsync(int? tenantId, Func<ITGroupDbContext, Task> action)
         {
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<AbpProjectNameDbContext>())
+                using (var context = LocalIocManager.Resolve<ITGroupDbContext>())
                 {
                     await action(context);
                     await context.SaveChangesAsync();
@@ -101,13 +101,13 @@ namespace AbpCompanyName.AbpProjectName.Tests
             }
         }
 
-        protected T UsingDbContext<T>(int? tenantId, Func<AbpProjectNameDbContext, T> func)
+        protected T UsingDbContext<T>(int? tenantId, Func<ITGroupDbContext, T> func)
         {
             T result;
 
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<AbpProjectNameDbContext>())
+                using (var context = LocalIocManager.Resolve<ITGroupDbContext>())
                 {
                     result = func(context);
                     context.SaveChanges();
@@ -117,13 +117,13 @@ namespace AbpCompanyName.AbpProjectName.Tests
             return result;
         }
 
-        protected async Task<T> UsingDbContextAsync<T>(int? tenantId, Func<AbpProjectNameDbContext, Task<T>> func)
+        protected async Task<T> UsingDbContextAsync<T>(int? tenantId, Func<ITGroupDbContext, Task<T>> func)
         {
             T result;
 
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<AbpProjectNameDbContext>())
+                using (var context = LocalIocManager.Resolve<ITGroupDbContext>())
                 {
                     result = await func(context);
                     await context.SaveChangesAsync();

@@ -7,7 +7,7 @@ using AbpCompanyName.AbpProjectName.EntityFrameworkCore;
 
 namespace AbpCompanyName.AbpProjectName.Migrations
 {
-    [DbContext(typeof(AbpProjectNameDbContext))]
+    [DbContext(typeof(ITGroupDbContext))]
     [Migration("20170703134115_Remove_IsActive_From_Role")]
     partial class Remove_IsActive_From_Role
     {

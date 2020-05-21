@@ -15,7 +15,7 @@ using System;
 
 namespace AbpCompanyName.AbpProjectName.Migrations
 {
-    [DbContext(typeof(AbpProjectNameDbContext))]
+    [DbContext(typeof(ITGroupDbContext))]
     [Migration("20180509121141_Upgraded_To_Abp_v3_6_1")]
     partial class Upgraded_To_Abp_v3_6_1
     {

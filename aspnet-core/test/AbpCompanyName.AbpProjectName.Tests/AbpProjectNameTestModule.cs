@@ -40,7 +40,7 @@ namespace AbpCompanyName.AbpProjectName.Tests
             // Use database for language management
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
 
-            RegisterFakeService<AbpZeroDbMigrator<AbpProjectNameDbContext>>();
+            RegisterFakeService<AbpZeroDbMigrator<ITGroupDbContext>>();
 
             Configuration.ReplaceService<IEmailSender, NullEmailSender>(DependencyLifeStyle.Transient);
         }

@@ -7,7 +7,7 @@ using AbpCompanyName.AbpProjectName.EntityFrameworkCore;
 
 namespace AbpCompanyName.AbpProjectName.Migrations
 {
-    [DbContext(typeof(AbpProjectNameDbContext))]
+    [DbContext(typeof(ITGroupDbContext))]
     [Migration("20170804083601_Upgraded_To_Abp_v2.2.2")]
     partial class Upgraded_To_Abp_v222
     {

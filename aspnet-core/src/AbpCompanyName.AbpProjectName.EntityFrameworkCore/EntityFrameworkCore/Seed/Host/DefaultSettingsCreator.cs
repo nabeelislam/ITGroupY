@@ -9,9 +9,9 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed.Host
 {
     public class DefaultSettingsCreator
     {
-        private readonly AbpProjectNameDbContext _context;
+        private readonly ITGroupDbContext _context;
 
-        public DefaultSettingsCreator(AbpProjectNameDbContext context)
+        public DefaultSettingsCreator(ITGroupDbContext context)
         {
             _context = context;
         }

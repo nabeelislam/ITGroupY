@@ -158,20 +158,20 @@ namespace AbpCompanyName.AbpProjectName.Web.Tests
 
         #region UsingDbContext
 
-        protected void UsingDbContext(Action<AbpProjectNameDbContext> action)
+        protected void UsingDbContext(Action<ITGroupDbContext> action)
         {
-            using (var context = IocManager.Resolve<AbpProjectNameDbContext>())
+            using (var context = IocManager.Resolve<ITGroupDbContext>())
             {
                 action(context);
                 context.SaveChanges();
             }
         }
 
-        protected T UsingDbContext<T>(Func<AbpProjectNameDbContext, T> func)
+        protected T UsingDbContext<T>(Func<ITGroupDbContext, T> func)
         {
             T result;
 
-            using (var context = IocManager.Resolve<AbpProjectNameDbContext>())
+            using (var context = IocManager.Resolve<ITGroupDbContext>())
             {
                 result = func(context);
                 context.SaveChanges();
@@ -180,20 +180,20 @@ namespace AbpCompanyName.AbpProjectName.Web.Tests
             return result;
         }
 
-        protected async Task UsingDbContextAsync(Func<AbpProjectNameDbContext, Task> action)
+        protected async Task UsingDbContextAsync(Func<ITGroupDbContext, Task> action)
         {
-            using (var context = IocManager.Resolve<AbpProjectNameDbContext>())
+            using (var context = IocManager.Resolve<ITGroupDbContext>())
             {
                 await action(context);
                 await context.SaveChangesAsync(true);
             }
         }
 
-        protected async Task<T> UsingDbContextAsync<T>(Func<AbpProjectNameDbContext, Task<T>> func)
+        protected async Task<T> UsingDbContextAsync<T>(Func<ITGroupDbContext, Task<T>> func)
         {
             T result;
 
-            using (var context = IocManager.Resolve<AbpProjectNameDbContext>())
+            using (var context = IocManager.Resolve<ITGroupDbContext>())
             {
                 result = await func(context);
                 await context.SaveChangesAsync(true);

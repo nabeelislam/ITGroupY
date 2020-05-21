@@ -70,14 +70,14 @@ namespace AbpCompanyName.AbpProjectName.Web.Tests
 
         private void UseInMemoryDb(IServiceProvider serviceProvider)
         {
-            var builder = new DbContextOptionsBuilder<AbpProjectNameDbContext>();
+            var builder = new DbContextOptionsBuilder<ITGroupDbContext>();
             builder.UseInMemoryDatabase(Guid.NewGuid().ToString()).UseInternalServiceProvider(serviceProvider);
             var options = builder.Options;
 
             var iocManager = serviceProvider.GetRequiredService<IIocManager>();
             iocManager.IocContainer
                 .Register(
-                    Component.For<DbContextOptions<AbpProjectNameDbContext>>()
+                    Component.For<DbContextOptions<ITGroupDbContext>>()
                         .Instance(options)
                         .LifestyleSingleton()
                 );

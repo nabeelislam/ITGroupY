@@ -8,9 +8,9 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed.Tenants
 {
     public class DefaultTenantBuilder
     {
-        private readonly AbpProjectNameDbContext _context;
+        private readonly ITGroupDbContext _context;
 
-        public DefaultTenantBuilder(AbpProjectNameDbContext context)
+        public DefaultTenantBuilder(ITGroupDbContext context)
         {
             _context = context;
         }

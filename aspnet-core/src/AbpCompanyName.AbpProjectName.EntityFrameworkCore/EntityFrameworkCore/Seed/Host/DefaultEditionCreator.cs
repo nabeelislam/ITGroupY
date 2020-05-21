@@ -8,9 +8,9 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore.Seed.Host
 {
     public class DefaultEditionCreator
     {
-        private readonly AbpProjectNameDbContext _context;
+        private readonly ITGroupDbContext _context;
 
-        public DefaultEditionCreator(AbpProjectNameDbContext context)
+        public DefaultEditionCreator(ITGroupDbContext context)
         {
             _context = context;
         }

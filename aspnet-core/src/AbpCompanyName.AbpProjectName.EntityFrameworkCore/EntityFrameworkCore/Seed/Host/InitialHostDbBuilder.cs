@@ -2,9 +2,9 @@
 {
     public class InitialHostDbBuilder
     {
-        private readonly AbpProjectNameDbContext _context;
+        private readonly ITGroupDbContext _context;
 
-        public InitialHostDbBuilder(AbpProjectNameDbContext context)
+        public InitialHostDbBuilder(ITGroupDbContext context)
         {
             _context = context;
         }
